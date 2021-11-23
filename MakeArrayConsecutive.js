@@ -6,14 +6,30 @@ const statues = [6, 2, 3, 8];
 
 function solution (statues) {
     // step 1: Sort the statues from smallest to largest
-    
+    const missingStatueArr = []
+    statues.sort((a, b) => {
+        return a - b
+    })
+    // return console.log(statues);
     // step 2: Loop through the array of statues [2, 3, 6, 8]
+    for (let i = 0; i < statues.length; i++) {
+        // step 3: evaluate the current number +1 and see if it equals the next number
+        let currentNumber = statues[i]
+        if(currentNumber + 1 === statues[i + 1]) {
+            // step 4: If when we add +1 to our current number and it equals the next number, continue to the next number in the for loop
+            // console.log(currentNumber + 1, statues[i + 1]);
+            continue
+        }
+        // step 4b: If they're not equal, create a list of the missing statues
+        else {
+            missingStatueArr.push(currentNumber + 1)
+        }
+    }
+    console.log(missingStatueArr);
 
-    // step 3: evaluate the current number +1 and see if it equals the next number
+    // step 5: everytime we have a letter that doesnt match, we want to add +1 regardless but we want to add that new value to the missing statues array
 
-    // step 4: If when we add +1 to our current number and it equals the next number, continue to the next number in the for loop
-
-    // step 4b: If they're not equal, create a list of missing statues
+    // step 6: return the number of elements in the missing statues array
 };
 
-console.log(solution(statues))
+solution(statues)
