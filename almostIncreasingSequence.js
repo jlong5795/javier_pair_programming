@@ -23,7 +23,11 @@ function solution(sequence) {
     if(sequence.length === 1) {
         return true
     }
-
+    for (let i = 0; i < sequence.length; i++) {
+        if(sequence[i] < sequence[i + 1]){
+            continue
+        }
+    }
 
 
 
