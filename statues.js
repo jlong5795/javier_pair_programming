@@ -12,17 +12,18 @@ function solution (statues) {
     })
     // return console.log(statues);
     // step 2: Loop through the array of statues [2, 3, 6, 8]
-    for (let i = 0; i < statues.length; i++) {
+    for (let i = 0; i < statues.length - 1; i++) {
         // step 3: evaluate the current number +1 and see if it equals the next number
-        let currentNumber = statues[i]
-        if(currentNumber + 1 === statues[i + 1]) {
+        
+        if(statues[i] + 1 === statues[i + 1]) {
             // step 4: If when we add +1 to our current number and it equals the next number, continue to the next number in the for loop
-            // console.log(currentNumber + 1, statues[i + 1]);
+            // console.log(statues[i] + 1, statues[i + 1]);
             continue
         }
         // step 4b: If they're not equal, create a list of the missing statues
         else {
-            missingStatueArr.push(currentNumber + 1)
+            
+            missingStatueArr.push(statues[i] + 1)
         }
     }
     console.log(missingStatueArr);
