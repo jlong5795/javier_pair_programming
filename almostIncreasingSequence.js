@@ -15,8 +15,9 @@ solution(sequence) = true.
 You can remove 3 from the array to get the strictly increasing sequence [1, 2]. Alternately, you can remove 2 to get the strictly increasing sequence [1, 3].
 */
 
-const sequence = [1, 3, 2, 1]
-const sequence2 = [1, 3, 2]
+const sequence = [1, 3, 2, 1] // false
+const sequence2 = [1, 3, 2] // true
+const sequence3 = [3] // true
 
 function solution(sequence) {
 
