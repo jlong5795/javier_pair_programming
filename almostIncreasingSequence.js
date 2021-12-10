@@ -20,5 +20,32 @@ const sequence2 = [1, 3, 2] // true
 const sequence3 = [3] // true
 
 function solution(sequence) {
+    if(sequence.length === 1) {
+        return true
+    }
 
+
+
+
+    return false
 }
+
+function test() {
+    if (solution(sequence) === false) { 
+        console.log(`Test 1 Passed`)
+    } else {
+        console.log(`Test 1 Failed`)
+    }
+    if (solution(sequence2) === true) { 
+        console.log(`Test 2 Passed`)
+    } else {
+        console.log(`Test 2 Failed`)
+    }
+    if (solution(sequence3) === true) { 
+        console.log(`Test 3 Passed`)
+    } else {
+        console.log(`Test 3 Failed`)
+    }
+}
+
+test()
