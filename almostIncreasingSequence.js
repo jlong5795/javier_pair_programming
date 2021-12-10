@@ -16,6 +16,7 @@ You can remove 3 from the array to get the strictly increasing sequence [1, 2]. 
 */
 
 const sequence = [1, 3, 2, 1]
+const sequence2 = [1, 3, 2]
 
 function solution(sequence) {
 
