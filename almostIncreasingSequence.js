@@ -19,14 +19,20 @@ const sequence = [1, 3, 2, 1] // false
 const sequence2 = [1, 3, 2] // true
 const sequence3 = [3] // true
 
-function solution(sequence) {
-    if(sequence.length === 1) {
+function solution(seq) {
+    if(seq.length === 1) {
         return true
+        // console.log("true here for array length === 1");
     }
-    for (let i = 0; i < sequence.length; i++) {
-        if(sequence[i] < sequence[i + 1]){
+    for (let i = 0; i < seq.length; i++) {
+        if(seq[i] <= seq[i + 1]){
             continue
+        } else {
+            seq.splice(seq.indexOf(seq[i]), 1)
+            return true
+            console.log("true here for removing greater #");
         }
+        
     }
 
 
