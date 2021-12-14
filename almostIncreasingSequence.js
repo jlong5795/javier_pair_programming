@@ -15,47 +15,48 @@ solution(sequence) = true.
 You can remove 3 from the array to get the strictly increasing sequence [1, 2]. Alternately, you can remove 2 to get the strictly increasing sequence [1, 3].
 */
 
-const sequence = [1, 3, 2, 1] // false
-const sequence2 = [1, 3, 2] // true
-const sequence3 = [3] // true
+const sequence = [1, 3, 4, 1]; // false
+const sequence2 = [1, 3, 2]; // true
+const sequence3 = [3]; // true
 
 function solution(seq) {
-    if(seq.length === 1) {
-        return true
-        // console.log("true here for array length === 1");
+  let remove = null;
+  if (seq.length === 1) {
+    return true;
+  }
+  for (let i = 0; i < seq.length - 1; i++) {
+    if (seq[i] < seq[i + 1]) {
+      continue;
+    } else {
+      if (remove === null) {
+        remove = seq.splice(seq.indexOf(seq[i + 1]), 1);
+      } else {
+        return false;
+      }
     }
-    for (let i = 0; i < seq.length; i++) {
-        if(seq[i] <= seq[i + 1]){
-            continue
-        } else {
-            seq.splice(seq.indexOf(seq[i]), 1)
-            return true
-            console.log("true here for removing greater #");
-        }
-        
+    if (i === seq.length - 2) {
+      return true;
     }
-
-
-
-    return false
+  }
+  return false;
 }
 
 function test() {
-    if (solution(sequence) === false) { 
-        console.log(`Test 1 Passed`)
-    } else {
-        console.log(`Test 1 Failed`)
-    }
-    if (solution(sequence2) === true) { 
-        console.log(`Test 2 Passed`)
-    } else {
-        console.log(`Test 2 Failed`)
-    }
-    if (solution(sequence3) === true) { 
-        console.log(`Test 3 Passed`)
-    } else {
-        console.log(`Test 3 Failed`)
-    }
+  if (solution(sequence) === false) {
+    console.log(`Test 1 Passed`);
+  } else {
+    console.log(`Test 1 Failed`);
+  }
+  if (solution(sequence2) === true) {
+    console.log(`Test 2 Passed`);
+  } else {
+    console.log(`Test 2 Failed`);
+  }
+  if (solution(sequence3) === true) {
+    console.log(`Test 3 Passed`);
+  } else {
+    console.log(`Test 3 Failed`);
+  }
 }
 
-test()
+test();
