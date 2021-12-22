@@ -15,30 +15,48 @@ solution(sequence) = true.
 You can remove 3 from the array to get the strictly increasing sequence [1, 2]. Alternately, you can remove 2 to get the strictly increasing sequence [1, 3].
 */
 
-const sequence = [1, 3, 2, 1]; // false
+const sequence = [1, 3, 1, 4, 5, 1]; // false
 const sequence2 = [1, 3, 2]; // true
 const sequence3 = [3]; // true
 
 function solution(seq) {
-  let remove = null;
+  let haveWeRemovedAThing = false;
+
+  // if there is only one element
   if (seq.length === 1) {
     return true;
   }
-  for (let i = 0; i < seq.length - 1; i++) {
-    if (seq[i] < seq[i + 1]) {
-      continue;
+
+  function evaluateIncreasing(current, next) {
+    return current < next;
+  }
+
+  let i = 0;
+  // if there are multiple elements
+  while (i < seq.length - 1) {
+    // current and next
+    if (evaluateIncreasing(seq[i], seq[i + 1])) {
+      i++;
     } else {
-      if (remove === null) {
-        remove = true
-        i++
-        
-        // return true
+      if (haveWeRemovedAThing) return false
+      // if not increasing
+      haveWeRemovedAThing = true;
+
+      // if we have no more values return true
+      if (typeof seq[i + 2] === 'undefined') {
+        return true
+      }
+
+      if (evaluateIncreasing(seq[i], seq[i + 2])) {
+        i = i + 2;
       } else {
+        
         return false;
       }
     }
   }
-  return false;
+
+  return true;
 }
 
 function test() {
