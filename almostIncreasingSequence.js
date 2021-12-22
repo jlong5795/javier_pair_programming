@@ -17,7 +17,7 @@ You can remove 3 from the array to get the strictly increasing sequence [1, 2]. 
 
 const sequence = [1, 3, 1, 4, 5, 1]; // false
 const sequence2 = [1, 3, 2]; // true
-const sequence3 = [3]; // true
+const sequence3 = [123, -17, -5, 1, 2, 3, 12, 43, 45]; //true
 
 function solution(seq) {
   let haveWeRemovedAThing = false;
