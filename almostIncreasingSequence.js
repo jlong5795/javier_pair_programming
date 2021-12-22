@@ -15,7 +15,7 @@ solution(sequence) = true.
 You can remove 3 from the array to get the strictly increasing sequence [1, 2]. Alternately, you can remove 2 to get the strictly increasing sequence [1, 3].
 */
 
-const sequence = [1, 3, 4, 1]; // true
+const sequence = [1, 3, 2, 1]; // false
 const sequence2 = [1, 3, 2]; // true
 const sequence3 = [3]; // true
 
@@ -29,8 +29,10 @@ function solution(seq) {
       continue;
     } else {
       if (remove === null) {
-        remove = seq.splice(seq.indexOf(seq[i + 1]), 1);
-        return true
+        remove = true
+        i++
+        
+        // return true
       } else {
         return false;
       }
@@ -40,7 +42,7 @@ function solution(seq) {
 }
 
 function test() {
-  if (solution(sequence) === true) {
+  if (solution(sequence) === false) {
     console.log(`Test 1 Passed`);
   } else {
     console.log(`Test 1 Failed`);
