@@ -39,6 +39,9 @@ function solution(seq) {
       i++;
     } else {
       if (haveWeRemovedAThing) return false
+
+
+
       // if not increasing
       haveWeRemovedAThing = true;
 
@@ -50,8 +53,12 @@ function solution(seq) {
       if (evaluateIncreasing(seq[i], seq[i + 2])) {
         i = i + 2;
       } else {
-        
-        return false;
+        if (evaluateIncreasing(seq[i + 1], seq[i + 2])) {
+          i = i + 1;
+        } else {
+          return false;
+        }
+          
       }
     }
   }

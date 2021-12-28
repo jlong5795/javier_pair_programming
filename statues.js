@@ -28,9 +28,6 @@ function solution (statues) {
     }
     console.log(missingStatueArr);
 
-    // step 5: everytime we have a letter that doesnt match, we want to add +1 regardless but we want to add that new value to the missing statues array
-
-    // step 6: return the number of elements in the missing statues array
 };
 
 solution(statues)
